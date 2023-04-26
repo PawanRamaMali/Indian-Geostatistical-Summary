@@ -25,12 +25,16 @@ jobs:
           sudo apt-get update && sudo apt-get install --yes
           libcurl4-openssl-dev
 
+      - name: Setup working directory
+        run: >
+          cd core/
+
       - name: Restore renv from cache
         uses: actions/cache@v2
         env:
           CACHE_KEY: renv-${{ runner.arch }}-${{ runner.os }}-${{ env.R_VERSION }}
         with:
-          path: core/renv/library
+          path: renv/library
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ env.CACHE_KEY }}-
 
