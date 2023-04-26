@@ -30,7 +30,7 @@ jobs:
         env:
           CACHE_KEY: renv-${{ runner.arch }}-${{ runner.os }}-${{ env.R_VERSION }}
         with:
-          path: renv/library
+          path: core/renv/library
           key: ${{ env.CACHE_KEY }}-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ env.CACHE_KEY }}-
 
