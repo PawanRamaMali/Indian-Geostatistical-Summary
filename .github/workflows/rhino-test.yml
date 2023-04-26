@@ -50,7 +50,6 @@ jobs:
         if: always()
         shell: Rscript {0}
         run: |
-        setwd('./core')
         rhino::lint_r()
 
       - name: Lint JavaScript
