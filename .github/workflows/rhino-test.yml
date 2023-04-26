@@ -37,6 +37,7 @@ jobs:
       - name: Sync renv with lockfile
         shell: Rscript {0}
         run: |
+          setwd('./core')
           options(renv.config.cache.symlinks = FALSE)
           renv::restore(clean = TRUE)
 
@@ -48,32 +49,44 @@ jobs:
       - name: Lint R
         if: always()
         shell: Rscript {0}
-        run: rhino::lint_r()
+        run: |
+        setwd('./core')
+        rhino::lint_r()
 
       - name: Lint JavaScript
         if: always()
         shell: Rscript {0}
-        run: rhino::lint_js()
+        run: |
+        setwd('./core')
+        rhino::lint_js()
 
       - name: Lint Sass
         if: always()
         shell: Rscript {0}
-        run: rhino::lint_sass()
+        run: |
+        setwd('./core')
+        rhino::lint_sass()
 
       - name: Build JavaScript
         if: always()
         shell: Rscript {0}
-        run: rhino::build_js()
+        run: |
+        setwd('./core')
+        rhino::build_js()
 
       - name: Build Sass
         if: always()
         shell: Rscript {0}
-        run: rhino::build_sass()
+        run: |
+        setwd('./core')
+        rhino::build_sass()
 
       - name: Run R unit tests
         if: always()
         shell: Rscript {0}
-        run: rhino::test_r()
+        run: |
+        setwd('./core')
+        rhino::test_r()
 
       - name: Run Cypress end-to-end tests
         if: always()
