@@ -54,37 +54,27 @@ jobs:
       - name: Lint JavaScript
         if: always()
         shell: Rscript {0}
-        run: |
-        setwd('./core')
-        rhino::lint_js()
+        run: rhino::lint_js()
 
       - name: Lint Sass
         if: always()
         shell: Rscript {0}
-        run: |
-        setwd('./core')
-        rhino::lint_sass()
+        run: rhino::lint_sass()
 
       - name: Build JavaScript
         if: always()
         shell: Rscript {0}
-        run: |
-        setwd('./core')
-        rhino::build_js()
+        run: rhino::build_js()
 
       - name: Build Sass
         if: always()
         shell: Rscript {0}
-        run: |
-        setwd('./core')
-        rhino::build_sass()
+        run: rhino::build_sass()
 
       - name: Run R unit tests
         if: always()
         shell: Rscript {0}
-        run: |
-        setwd('./core')
-        rhino::test_r()
+        run: rhino::test_r()
 
       - name: Run Cypress end-to-end tests
         if: always()
