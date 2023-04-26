@@ -49,8 +49,7 @@ jobs:
       - name: Lint R
         if: always()
         shell: Rscript {0}
-        run: |
-        rhino::lint_r()
+        run: rhino::lint_r()
 
       - name: Lint JavaScript
         if: always()
